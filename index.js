@@ -7,9 +7,9 @@ let kingdoms = [
                 genuses: [
                     {
                         name: "Aquus",
-                        species: [{ name: "Tentacle Human" }, { name: "Aquatic Human" }],
+                        species: [{ name: "Tentaculum", number: 6 }, { name: "Navigare", number: 3 }],
                     },
-                    { name: "Terrus", species: [{ name: "Primus" }] },
+                    { name: "Terrus", species: [{ name: "Primus", number: 5 }] },
                 ],
             },
             {
@@ -17,28 +17,28 @@ let kingdoms = [
                 genuses: [
                     {
                         name: "Insinuatis",
-                        species: [{ name: "Hamster" }, { name: "Rat" }],
+                        species: [{ name: "Criceta", number: 13 }, { name: "Fur", number: 9 }],
                     },
-                    { name: "Rapax", species: [{ name: "Shark" }] },
+                    { name: "Rapax", species: [{ name: "Cetus", number: 1 }] },
                 ],
             },
             {
                 name: "Arthopodum",
                 genuses: [
-                    { name: "Arachnid", species: [{ name: "Spider" }] },
+                    { name: "Arachnid", species: [{ name: "Aquus-Aranea", number: 8 }] },
                     {
                         name: "Superesse",
-                        species: [{ name: "Cockroach" }, { name: "Butter-roach" }],
+                        species: [{ name: "Blatta", number: 7 }, { name: "Blatta-Alis", number: 14 }],
                     },
                     {
                         name: "Furantur",
-                        species: [{ name: "Mosquito" }, { name: "Flea" }],
+                        species: [{ name: "Culex", number: 10 }, { name: "Pulices", number: 11 }],
                     },
                 ],
             },
             {
                 name: "Natare",
-                genuses: [{ name: "Transmutare", species: [{ name: "Goldfish" }] }],
+                genuses: [{ name: "Transmutare", species: [{ name: "Piscis", number: 2 }] }],
             },
         ],
     },
@@ -48,8 +48,8 @@ let kingdoms = [
             {
                 name: "Lux",
                 genuses: [
-                    { name: "Medicamentis", species: [{ name: "Grass" }] },
-                    { name: "Aquarre", species: [{ name: "Algae" }] },
+                    { name: "Medicamentis", species: [{ name: "Gramen", number: 12 }] },
+                    { name: "Aquarre", species: [{ name: "Musco", number: 4 }] },
                 ],
             },
         ],
@@ -72,7 +72,7 @@ function unveil() {
                     buildElement("li", newerDestination, `Genus: ${kingdoms[i].phylums[j].genuses[k].name}`, null, "genus");
                     let newestDestination = buildElement("ul", newerDestination);
                     for (let l = 0; l < kingdoms[i].phylums[j].genuses[k].species.length; l++) {
-                        buildElement("li", newestDestination, `Species: ${kingdoms[i].phylums[j].genuses[k].species[l].name}`, null, "species");
+                        buildElement("li", newestDestination, `Species: ${kingdoms[i].phylums[j].genuses[k].species[l].name}/Scientific name: ${kingdoms[i].phylums[j].genuses[k].name} ${kingdoms[i].phylums[j].genuses[k].species[l].name}/Number: ${kingdoms[i].phylums[j].genuses[k].species[l].number}`, null, "species");
                         buildElement("button", newestDestination, "Reveal", kingdoms[i].phylums[j].genuses[k].species[l].name).addEventListener('click', handleClick);
                         generateImage(kingdoms[i].phylums[j].genuses[k].species[l].name, newestDestination, kingdoms[i].phylums[j].genuses[k].species[l].name + "img", "display: none", "0")
                     }
