@@ -9,7 +9,7 @@ let kingdoms = [
                         name: "Aquus",
                         species: [{ name: "Tentacle Human" }, { name: "Aquatic Human" }],
                     },
-                    { name: "Terrus", species: [{ name: "Land Human" }] },
+                    { name: "Terrus", species: [{ name: "Primus" }] },
                 ],
             },
             {
@@ -72,7 +72,9 @@ function unveil() {
                     buildElement("li", newerDestination, `Genus: ${kingdoms[i].phylums[j].genuses[k].name}`, null, "genus");
                     let newestDestination = buildElement("ul", newerDestination);
                     for (let l = 0; l < kingdoms[i].phylums[j].genuses[k].species.length; l++) {
-                        buildElement("li", newestDestination, `Species: ${kingdoms[i].phylums[j].genuses[k].species[l].name}`, null, "species")
+                        buildElement("li", newestDestination, `Species: ${kingdoms[i].phylums[j].genuses[k].species[l].name}`, null, "species");
+                        buildElement("button", newestDestination, "Reveal").addEventListener('click', handleClick);
+                        generateImage(kingdoms[i].phylums[j].genuses[k].species[l].name, newestDestination);
                     }
                 }
             }
@@ -83,6 +85,20 @@ function unveil() {
     }
 }
 
+function handleClick(){
+
+}
+
+function generateImage(src, dest){
+    let tempElement = document.createElement("img");
+    tempElement.src = src + ".png";
+    if(src != "Spider"){
+        tempElement.height = "200";
+    } 
+    dest.append(tempElement);
+    return tempElement;
+
+}
 function buildElement(type, parent, content, id, className) {
     let tempVariable = document.createElement(type);
     if (className) {
