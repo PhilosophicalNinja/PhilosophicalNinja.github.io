@@ -28,7 +28,7 @@ let kingdoms = [
                     { name: "Arachnid", species: [{ name: "Spider" }] },
                     {
                         name: "Superesse",
-                        species: [{ name: "Cockroach" }, { name: "Butterroach" }],
+                        species: [{ name: "Cockroach" }, { name: "Butter-roach" }],
                     },
                     {
                         name: "Furantur",
@@ -73,8 +73,8 @@ function unveil() {
                     let newestDestination = buildElement("ul", newerDestination);
                     for (let l = 0; l < kingdoms[i].phylums[j].genuses[k].species.length; l++) {
                         buildElement("li", newestDestination, `Species: ${kingdoms[i].phylums[j].genuses[k].species[l].name}`, null, "species");
-                        buildElement("button", newestDestination, "Reveal").addEventListener('click', handleClick);
-                        generateImage(kingdoms[i].phylums[j].genuses[k].species[l].name, newestDestination);
+                        buildElement("button", newestDestination, "Reveal", kingdoms[i].phylums[j].genuses[k].species[l].name).addEventListener('click', handleClick);
+                        generateImage(kingdoms[i].phylums[j].genuses[k].species[l].name, newestDestination, kingdoms[i].phylums[j].genuses[k].species[l].name + "img", "display: none", "0")
                     }
                 }
             }
@@ -86,15 +86,34 @@ function unveil() {
 }
 
 function handleClick(){
-
+    if(document.getElementById(this.id + "img").alt != 0){
+        document.getElementById(this.id + "img").style = "display: none";
+        document.getElementById(this.id + "img").alt = "0";
+        document.getElementById(this.id).innerHTML = "Reveal";
+    } else {
+        document.getElementById(this.id + 'img').style = "display: inline";
+        document.getElementById(this.id + "img").alt = "1";
+        document.getElementById(this.id).innerHTML = "Hide";
+    }
 }
 
-function generateImage(src, dest){
+function generateImage(src, dest, id, style, alt){
     let tempElement = document.createElement("img");
     tempElement.src = src + ".png";
+    if(id){
+        tempElement.id = id;
+    }
     if(src != "Spider"){
         tempElement.height = "200";
     } 
+
+    if(style){
+        tempElement.style = style;
+    }
+
+    if(alt){
+        tempElement.alt = alt;
+    }
     dest.append(tempElement);
     return tempElement;
 
