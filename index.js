@@ -1,3 +1,8 @@
+document.addEventListener("onload", changePage);
+
+function changePage(){
+    window.location.href = "site.html";
+}
 let kingdoms = [
     {
         name: "Curetus",
