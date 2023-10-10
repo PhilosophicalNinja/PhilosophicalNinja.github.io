@@ -1,4 +1,4 @@
-document.addEventListener("onload", changePage);
+setTimeout(changePage, 500);
 
 function changePage(){
     window.location.href = "site.html";
