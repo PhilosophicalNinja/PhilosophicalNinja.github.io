@@ -1,0 +1,33 @@
+body {
+    color: aqua;
+    background-color: grey;
+    position: static;
+    text-align: center;
+}
+.hidden {
+    opacity: 0
+}
+
+canvas {
+    border: 2px solid black;
+}
+
+#start {
+    position: absolute;
+    top: 280px;
+    left: 600px;
+}
+
+#menu {
+    position: absolute;
+    top: 438px;
+    left: 579px;
+}
+
+#random {
+    position: absolute;
+    top: 455px;
+    left: 915px;
+    width: 300px;
+    height: 300px;
+}
