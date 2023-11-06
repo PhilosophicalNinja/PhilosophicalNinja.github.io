@@ -316,5 +316,6 @@ function input(e){
     
 }
 
+//So, will this work now?
 window.onload = initialize;
 var a = []; a['cat']='meow';
