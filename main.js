@@ -158,7 +158,7 @@ function promote(){
             board[inputObj.x2][inputObj.y2].piece = pieces.w_bishop;
             break;
         default:
-            console.log("Something has gone wrong.");
+            console.error("Something has gone wrong.");
             break;
     }
         render(inputObj.x2, inputObj.y2);
@@ -306,7 +306,11 @@ function input(e){
             inputObj.first = true;
         }
     } else {
-        inputObj.secondColor = board[x][y].color;
+        if(inputObj.x1 == x && inputObj.y1 == y){
+            inputObj.secondColor = inputObj.firstColor;
+        } else {
+            inputObj.secondColor = board[x][y].color;
+        }
         board[x][y].color = "red";
         inputObj.x2 = x;
         inputObj.y2 = y;
@@ -316,6 +320,5 @@ function input(e){
     
 }
 
-//So, will this work now?
 window.onload = initialize;
 var a = []; a['cat']='meow';
