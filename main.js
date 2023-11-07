@@ -204,6 +204,8 @@ function verifyMove(){
                 break;
             } else if((diffX == diffY && diffY == 1) && board[inputObj.x2][inputObj.y2].piece != "empty"){
                 break;
+            } else if(diffY == 2 && diffX == 0 && (inputObj.y1 == 6 || inputObj.y1 == 1) && board[inputObj.x2][inputObj.y2].piece == "empty"){
+                break;
             } else {
                 pass = false;
             }
