@@ -2,8 +2,39 @@ body {
     text-align:center;
     background-color: gray;
     color: cyan;
+    background-image: url("SNUCK.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
 
+#snuck {
+    position: static;
+}
+
+#popup {
+    visibility: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    padding: 20px;
+    color: purple;
+    border: 1px solid black;
+}
+
+#faint {
+    opacity: 0.025;
+}
+
+button {
+    background-color: darkslategray;
+    color: cyan;
+}
 button:hover {
     opacity: 0.7;
 }
