@@ -11,7 +11,7 @@ function onSubmit(){
     if(val < 4.1){
         alert("GPA is too low. Depart at once.");
     } else {
-        alert("SSSSSSSSSSSSSSSSS");
+        alert("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSQUACK");
     }
     popup.style.visiblity ="hidden";
     
